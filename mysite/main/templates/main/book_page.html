@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" href="{% static '/css/book.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div class="grid-book-3">
+        <div class="grid-book-pic">
+            <img src="{{book.picture.url}}" class="book-pic">
+        </div>
+        <div clas="grid-left-text">
+            <h3>{{ book.name }}</h3>
+            <p>Author: {{ book.author }}</p>
+            <p>Category: {{ book.category }}</p>
+            <p>Price: {{ book.price }}
+                <a href="/book_buy/{{ book.id }}"><button class="btn btn-outline-dark">Buy</button></a>
+            </p>
+            <p>Seller: <a href="/user_page/{{ book.seller.id }}" class="book-link">{{ book.seller }}</a></p>
+            <p>Description: {{ book.description }}</p>
+        </div>
+        <div class="grid-bottom-text">
+
+        </div>
+    </div>
+{% endblock %}

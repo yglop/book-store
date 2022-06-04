@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" href="{% static '/css/book.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    {% for book in searched %}
+        <div class="d-flex flex-row align-self-center">
+            <div class="p-2">
+                <div class="card card-body">
+                    <a href="/book_page/{{ book.id }}" class="book-link">
+                        <div class="grid-book-search">
+                            <div class="grid-book-c1">
+                                <img class="book-pic-small" src="{{book.picture.url}}" >
+                            </div>
+                            <div class="grid-book-c2">
+                                <p>{{ book.name }}</p>
+                                <p>Author: {{ book.author }}</p>
+                                <p>Price: {{ book.price }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+     <link rel="stylesheet" href="{% static '/css/book.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-row align-self-center">
+        {% if seller == user %}
+            <div class="p-2">
+                <div class="card card-body">
+                    <img class="book-pic" src="{{pic}}" >
+                </div>
+            </div>
+            <div class="p-2">
+                <div class="card card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <p>You shouldn't be here:</p>
+            <p>{{seller}},</p>
+            <p>{{user.username}}</p>
+        {% endif %}
+    </div>
+{% endblock %}

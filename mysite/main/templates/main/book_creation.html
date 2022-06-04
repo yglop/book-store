@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+    {% if user.customer.is_seller == True %}
+        <form method="POST" class="form-group" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    {% else %}
+        <div class="book-container">
+            <p>You are not seller</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

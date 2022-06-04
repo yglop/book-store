@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" href="{% static '/css/home.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div class="grid-home">
+        <div class="grid-col-1 grid-row-1">
+            <div class="card card-body">
+                <a href="/book_page/{{book1.id}}">
+                    <img class="book-pic" src={{book1.picture.url}}>
+                </a>
+                <p>{{book1.name}}</p>
+                <p>Price: {{book1.price}}</p>
+            </div>
+        </div>
+        <div class="grid-col-2 grid-row-1">
+            <div class="card card-body">
+                <a href="/book_page/{{book2.id}}">
+                    <img class="book-pic" src={{book2.picture.url}}>
+                </a>
+                <p>{{book2.name}}</p>
+                <p>Price: {{book2.price}}</p>
+            </div>
+        </div>
+        <div class="grid-col-3 grid-row-1">
+            <div class="card card-body">
+                <a href="/book_page/{{book3.id}}">
+                    <img class="book-pic" src={{book3.picture.url}}>
+                </a>
+                <p>{{book3.name}}</p>
+                <p>Price: {{book3.price}}</p>
+            </div>
+        </div>
+        <div class="grid-col-4 grid-row-1">
+            <div class="card card-body">
+                <a href="/book_page/{{book4.id}}">
+                    <img class="book-pic" src={{book4.picture.url}}>
+                </a>
+                <p>{{book4.name}}</p>
+                <p>Price: {{book4.price}}</p>
+            </div>
+        </div>
+
+        <div class="grid-col-1 grid-row-2">
+            <div class="card card-body">
+                <a href="/book_page/{{book5.id}}">
+                    <img class="book-pic" src={{book5.picture.url}}>
+                </a>
+                <p>{{book5.name}}</p>
+                <p>Price: {{book5.price}}</p>
+            </div>
+        </div>
+        <div class="grid-col-2 grid-row-2">
+            <div class="card card-body">
+                <a href="/book_page/{{book6.id}}">
+                    <img class="book-pic" src={{book6.picture.url}}>
+                </a>
+                <p>{{book6.name}}</p>
+                <p>Price: {{book6.price}}</p>
+            </div>
+        </div>
+        <div class="grid-col-3 grid-row-2">
+            <div class="card card-body">
+                <a href="/book_page/{{book7.id}}">
+                    <img class="book-pic" src={{book7.picture.url}}>
+                </a>
+                <p>{{book7.name}}</p>
+                <p>Price: {{book7.price}}</p>
+            </div>
+        </div>
+        <div class="grid-col-4 grid-row-2">
+            <div class="card card-body">
+                <a href="/book_page/{{book8.id}}">
+                    <img class="book-pic" src={{book8.picture.url}}>
+                </a>
+                <p>{{book8.name}}</p>
+                <p>Price: {{book8.price}}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

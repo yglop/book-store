@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+     <link rel="stylesheet" href="{% static '/css/user.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-row align-self-center">
+        <div class="p-2">
+            <div class="card card-body">
+                <img class="user-pic" src="{{request.user.customer.profile_pic.url}}" >
+            </div>
+        </div>
+        <div class="p-2">
+            <div class="card card-body">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ user_settings_form.as_p }}
+                    {{ customer_settings_form.as_p }}
+                    <p><a href="/password_reset">Reset password</a></p>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

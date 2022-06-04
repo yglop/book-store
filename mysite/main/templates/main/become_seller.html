@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" href="{% static '/css/book.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    {% if customer.is_seller == False %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="book-container">
+                <p>Are you sure you want to become seller?</p>
+                <button type="submit" class="btn btn-outline-dark">Yes</button>
+            </div>
+        </form>
+    {% else %}
+        <div class="book-container">
+            <p>You already are seller</p>
+        </div>
+    {% endif %}
+{% endblock %}

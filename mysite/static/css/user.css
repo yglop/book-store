@@ -1,0 +1,31 @@
+.grid-user {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.grid-left-text{
+    grid-column: 2;
+    grid-row: 1;/2;
+}
+
+.grid-user-pic{
+    width: 200px;
+    grid-column: 1;
+    grid-row: 1/2;
+}
+
+.user-pic{
+    max-width: 200px;
+    max-height:200px;
+    border-radius: 50%;
+}
+
+.user-link{
+    color: black;
+    padding-right: 6px;
+}
+.user-link:hover{
+    color: black;
+}

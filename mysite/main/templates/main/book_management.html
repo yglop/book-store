@@ -1,0 +1,74 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" href="{% static '/css/book.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div class="grid-book-2">
+        <div class="grid-book-c1">
+            <p>Books own:</p>
+            <table class="table table-sm">
+				<tr>
+					<th>Name</th>
+					<th>Author</th>
+					<th>Download</th>
+				</tr>
+
+				{% for book in books_have %}
+                    <tr>
+                        <td><a href="/book_page/{{ book.id }}" class="book-link">{{book.name}}</a></td>
+                        <td>{{book.author}}</td>
+                        <td>
+                            <a href="{{book.book_file.url}}" download>
+                                <button class="btn btn-outline-dark">Download</button>
+                            </a>
+                        </td>
+                    </tr>
+				{% endfor %}
+			</table>
+        </div>
+        <div clas="grid-book-c2">
+            {% if user.customer.is_seller == True%}
+                <div class="flex-book">
+                    <p>Books on sale:</p>
+                    <a href="/book_creation/" class="book-link">Create</a>
+                </div>
+
+                <table class="table table-sm">
+                    <tr>
+                        <th>Name</th>
+                        <th>Date_created</th>
+                        <th>Redact</th>
+                        <th>Delete</th>
+                    </tr>
+
+                    {% for book in books_sale %}
+                        <tr>
+                            <td><a href="/book_page/{{ book.id }}" class="book-link">{{book.name}}</a></td>
+                            <td>{{book.date_created}}</td>
+                            <td>
+                                <a href="/book_redaction/{{ book.id }}" class="book-link">
+                                    <button class="btn btn-outline-dark">Redact</button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/book_delete/{{ book.id }}" class="book-link">
+                                    <button class="btn btn-outline-dark">Delete</button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <div class="book-container">
+                    <p>You are not seller</p>
+                    <a href="/become_seller" class="book-link">Become one</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

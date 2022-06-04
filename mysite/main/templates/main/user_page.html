@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    <link rel="stylesheet" href="{% static '/css/user.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div class="grid-user">
+        <div class="grid-user-pic">
+            <img src="{{customer.profile_pic.url}}" class="user-pic">
+        </div>
+        <div clas="grid-left-text">
+            <h3>{{ customer.name }}</h3>
+            <p>email: {{ customer.email }}</p>
+
+            <p>books_have:</p>
+            {% for name, id in  data_have.items %}
+                <a href="/book_page/{{ id }}" class="user-link">{{ name }}</a>
+            {% endfor %}
+
+            <p>books_sale:</p>
+            {% for name, id in data_sale.items %}
+                <a href="/book_page/{{ id }}" class="user-link">{{ name }}</a>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+{% endblock %}
